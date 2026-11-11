@@ -1,5 +1,5 @@
-import DestinoDetalle from "../interfaces/DestinoDetalle";
+import DestinosLista from "../interfaces/DestinosLista";
 
 export default function DestinosPage() {
-  return <DestinoDetalle />;
+  return <DestinosLista />;
 }

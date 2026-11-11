@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import AppHeader from "./AppHeader";
+import { useGoogleSignIn } from "./useGoogleSignIn";
 
 export default function Registro() {
+  const { signInWithGoogle, isGoogleLoading } = useGoogleSignIn();
+
   return (
     <main className="register-page">
       <AppHeader active="inicio" />
@@ -91,9 +96,14 @@ export default function Registro() {
             <span />
           </div>
 
-          <button className="register-google" type="button">
+          <button
+            className="register-google"
+            type="button"
+            onClick={() => signInWithGoogle()}
+            disabled={isGoogleLoading}
+          >
             <span aria-hidden="true">G</span>
-            Google
+            {isGoogleLoading ? "Conectando..." : "Google"}
           </button>
 
           <p className="register-login-link">
