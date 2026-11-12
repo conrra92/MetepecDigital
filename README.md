@@ -32,6 +32,9 @@ aprobado, el administrador debe crear primero en Firebase Authentication una cue
 puede modificar el destino asignado; el solicitante conserva su correo de usuario
 final. Al iniciar sesión, la cuenta institucional entra a `/mi-destino`, donde puede
 actualizar la información y subir imágenes JPG, JPEG o PNG de hasta 650 KB cada una.
+El `overrides` de `package.json` fija `jose@5.10.0` para `jwks-rsa`, que todavía lo
+carga con `require`; `jose` 6 es solo ESM y provoca errores al cargar Firebase Admin
+en Vercel.
 Las altas realizadas desde el panel de destinos se guardan en Firestore y cada
 cuenta institucional se asigna a un único destino; el administrador puede cambiar
 la asignación desde la lista de destinos dados de alta.
