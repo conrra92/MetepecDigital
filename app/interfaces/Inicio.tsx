@@ -504,7 +504,7 @@ export default function Inicio() {
             </div>
 
             <form className="admin-form" onSubmit={handleOwnerLocationUpdate}>
-              <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.2fr) minmax(320px, 1.3fr)", gap: "1rem", alignItems: "start" }}>
+              <div className="owner-destination-editor-grid">
                 <div>
                   <label>
                     Resumen breve

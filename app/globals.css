@@ -24,8 +24,22 @@
 html,
 body {
   margin: 0;
-  min-width: 320px;
   min-height: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+input,
+select,
+textarea {
+  max-width: 100%;
+  min-width: 0;
 }
 
 body {
@@ -2276,6 +2290,13 @@ button {
   gap: 12px;
 }
 
+.owner-destination-editor-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr);
+  gap: 1rem;
+  align-items: start;
+}
+
 .admin-form label {
   display: grid;
   gap: 6px;
@@ -3803,6 +3824,44 @@ button {
   font-weight: 900;
 }
 
+@media (max-width: 1024px) {
+  .map-page-shell {
+    padding: 30px 20px 52px;
+  }
+
+  .map-page-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .map-stage--large {
+    height: clamp(360px, 58vh, 560px);
+  }
+
+  .places-grid,
+  .reviews-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .destination-shell {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .destination-content-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.8fr);
+  }
+
+  .register-shell {
+    width: min(100% - 32px, 900px);
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  }
+
+  .register-form-card {
+    padding: clamp(22px, 4vw, 48px);
+  }
+}
+
 @media (max-width: 780px) {
   .site-header {
     grid-template-columns: 1fr auto;
@@ -3836,6 +3895,14 @@ button {
     padding-top: 76px;
   }
 
+  .map-page-shell {
+    padding: 26px 18px 44px;
+  }
+
+  .map-stage--large {
+    height: clamp(340px, 56vh, 480px);
+  }
+
   .category-tabs {
     margin-bottom: 34px;
   }
@@ -3846,8 +3913,12 @@ button {
   }
 
   .places-grid,
-  .reviews-grid {
+  .owner-destination-editor-grid {
     grid-template-columns: 1fr;
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .site-footer {
@@ -3877,7 +3948,9 @@ button {
   }
 
   .login-panel-wrap {
+    width: min(100% - 32px, 460px);
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .login-tradition-card {
@@ -3885,6 +3958,7 @@ button {
   }
 
   .register-shell {
+    width: min(100% - 32px, 560px);
     grid-template-columns: 1fr;
   }
 
@@ -3924,6 +3998,55 @@ button {
     width: 100%;
   }
 
+  .reviews-grid,
+  .destination-comments-grid,
+  .guided-visit-row,
+  .register-two-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    gap: 20px;
+    padding: 32px 20px 24px;
+  }
+
+  .map-page-shell {
+    padding: 24px 14px 40px;
+  }
+
+  .map-page-summary {
+    font-size: 14px;
+  }
+
+  .map-panel {
+    padding: 12px;
+  }
+
+  .map-stage--large {
+    height: clamp(300px, 55vh, 420px);
+  }
+
+  .destination-shell {
+    padding: 18px 14px 32px;
+  }
+
+  .destination-photo-modal-backdrop {
+    padding: 12px;
+  }
+
+  .destination-photo-modal {
+    padding: 14px 14px 12px;
+  }
+
+  .login-panel-wrap {
+    width: min(100% - 28px, 420px);
+    padding: 24px 0;
+  }
+
+  .login-form-card {
+    padding: 24px 20px;
+  }
+
   .business-application-card {
     padding: 16px;
   }
@@ -3943,12 +4066,22 @@ button {
 
   .guide-dashboard-heading {
     align-items: flex-start;
+    flex-wrap: wrap;
     padding: 20px;
+  }
+
+  .guide-dashboard-heading > div:first-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .guide-dashboard-vehicle {
     width: 100px;
     height: 80px;
+  }
+
+  .guide-request-heading {
+    flex-wrap: wrap;
   }
 
   .guide-vehicle-details {
@@ -3969,5 +4102,9 @@ button {
 
   .guide-application-photo {
     width: min(100%, 220px);
+  }
+
+  .register-form-card {
+    padding: 24px 20px;
   }
 }
