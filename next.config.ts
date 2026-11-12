@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  serverExternalPackages: ["firebase-admin"],
+  // conserva el resto de tu configuración aquí
 };
 
 export default nextConfig;

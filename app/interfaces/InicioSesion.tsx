@@ -16,6 +16,7 @@ export default function InicioSesion() {
   const { signInWithGoogle, isGoogleLoading } = useGoogleSignIn();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const handleManualLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -103,13 +104,18 @@ export default function InicioSesion() {
               Contrasena
               <span className="password-field">
                 <input
-                  type="password"
+                  type={isPasswordVisible ? "text" : "password"}
                   placeholder="Contrasena"
                   autoComplete="current-password"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
                 />
-                <button type="button" aria-label="Mostrar contrasena">
+                <button
+                  type="button"
+                  aria-label={isPasswordVisible ? "Ocultar contrasena" : "Mostrar contrasena"}
+                  aria-pressed={isPasswordVisible}
+                  onClick={() => setIsPasswordVisible((visible) => !visible)}
+                >
                   <span aria-hidden="true" />
                 </button>
               </span>
